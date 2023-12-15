@@ -1,5 +1,17 @@
-.App {
+.App main {
   text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.App header {
+  text-align: center;
+}
+
+.App > div {
+  margin: auto;
+  height: 700px;
 }
 
 .App-logo {

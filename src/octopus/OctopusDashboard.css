@@ -1,0 +1,15 @@
+div.Octopus {
+
+    width: 500px;
+
+}
+
+div.prices {
+    display: flex;
+    align-items: flex-start;
+}
+
+
+/*div.Octopus > div.OctopusDayPrice {*/
+/*    float: left;*/
+/*}*/

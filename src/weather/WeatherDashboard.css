@@ -1,0 +1,9 @@
+div.Weather {
+    width: 500px;
+}
+
+div.Weather table img {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+}

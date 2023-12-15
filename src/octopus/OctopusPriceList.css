@@ -1,0 +1,36 @@
+div.OctopusPriceList table {
+    width: 100%;
+    border-spacing: 0px;
+    border: black solid 1px;
+    margin: 1px;
+}
+
+div.OctopusPriceList table tr.green td{
+    background: lightgreen;
+    border-color: lightgreen;
+}
+
+div.OctopusPriceList table tr.lightOrange td {
+    background: orange;
+    border-color: orange;
+}
+
+div.OctopusPriceList table tr.orange td {
+    background: #e86a10;
+    border-color: #e86a10;
+}
+
+div.OctopusPriceList table tr.darkOrange td {
+    background: orangered;
+    border-color: orangered;
+}
+
+div.OctopusPriceList table tr.red td {
+    background: red;
+    border-color: red;
+}
+
+div.OctopusPriceList table tr.now td{
+    border-top: black solid 3px;
+    border-bottom: black solid 3px;
+}

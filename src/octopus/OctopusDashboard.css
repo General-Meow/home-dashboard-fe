@@ -1,12 +1,16 @@
 div.Octopus {
 
     width: 500px;
+    min-width: 300px;
 
 }
 
 div.prices {
     display: flex;
-    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    /*align-items: flex-start;*/
 }
 
 

@@ -9,7 +9,7 @@ const OctopusDayPrice = props => {
 
   if (today.getDay() === receivedDate.getDay()) {
     dayText = "Today";
-  } else if (receivedDate.getDay() === today.getDay() + 1) {
+  } else {
     dayText = "Tomorrow";
   }
 

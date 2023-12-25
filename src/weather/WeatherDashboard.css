@@ -1,5 +1,6 @@
 div.Weather {
     width: 500px;
+    min-width: 300px;
 }
 
 div.Weather table img {

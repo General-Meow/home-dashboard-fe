@@ -1,6 +1,7 @@
 div.OctopusDayPrice {
-    width: 300px;
-    height: 600px;
-    margin: auto;
+    display: inline-block;
+    width: 250px;
+    /*height: 600px;*/
+    /*margin: auto;*/
 
 }

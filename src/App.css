@@ -5,6 +5,12 @@
   justify-content: space-around;
 }
 
+.App main > div {
+  height: auto;
+  display: inline-block;
+  width: 500px;
+}
+
 .App header {
   text-align: center;
 }

@@ -6,8 +6,8 @@ import OctopusDayPrice from "./OctopusDayPrice";
 const OctopusDashboard = props => {
 
     // const todaysPricesUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/electric-prices';
-    let todaysPricesUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/todays-weather';
-    let tomorrowsPricesUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/todays-weather';
+    let todaysPricesUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/todays-electric-prices';
+    let tomorrowsPricesUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/tomorrows-electric-prices';
 
     if(document.location.host.indexOf('localhost') >= 0) {
         todaysPricesUrl = 'http://localhost:3000/todays-electric-prices';

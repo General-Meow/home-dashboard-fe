@@ -15,11 +15,18 @@ function WeatherDashboard() {
 
   const initState = function(response) {
     const result = [];
+    var asOfDate = new Date(response.data.asOfDateTime);
     for (let hourOfWeather of response.data.hourlyWeatherArray) {
-      const hour = new Date(hourOfWeather.hour).toLocaleTimeString();
+      var hourDate = new Date(hourOfWeather.hour);
+      const hour = hourDate.toLocaleTimeString();
       const imageSrc = hourOfWeather.description.replaceAll(' ', '-').toLowerCase().concat('.png');
+      let style = '';
+      console.log("hour", hourOfWeather.hour)
+      if (asOfDate.getHours() == hourDate.getHours()) {
+        style = 'now';
+      }
       result.push( (
-          <tr key={`weather`+hour}>
+          <tr key={`weather`+hour} className={style}>
             <td><img title={hourOfWeather.description} src={imageSrc}/></td>
             <td>Time: {hour} </td>
             <td>Temp: {hourOfWeather.tempurature}c </td>
@@ -27,9 +34,10 @@ function WeatherDashboard() {
           </tr>
       ));
     }
+
     setDay({"day": response.data.day, "description": response.data.description});
     setHourlyWeather(result);
-    setAsOfDateTime(new Date(response.data.asOfDateTime))
+    setAsOfDateTime(asOfDate)
   }
 
   useEffect(() =>{

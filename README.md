@@ -1,3 +1,8 @@
+
+- docker build -t generalmeow/home-dashboard-fe .
+- docker run -v host_build_dir:/app/build generalmeow/home-dashboard-fe
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

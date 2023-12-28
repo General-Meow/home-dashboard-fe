@@ -8,3 +8,10 @@ div.Weather table img {
     width: 50px;
     height: 50px;
 }
+
+div.Weather table {
+    border-collapse: collapse;
+}
+div.Weather table tr.now {
+    border: black 3px solid;
+}

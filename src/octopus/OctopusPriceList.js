@@ -50,7 +50,7 @@ const octopusPriceList = props => {
             const now = new Date();
             const fromPriceDate = new Date(element.fromDateTime);
             const toPriceDate = new Date(element.toDateTime);
-            if ( (!foundNow) && (fromPriceDate >= now) && (now <= toPriceDate)) {
+            if ( (!foundNow) && (fromPriceDate <= now) && (now <= toPriceDate)) {
                 rowStyle = rowStyle + ' now';
                 foundNow = true;
             }

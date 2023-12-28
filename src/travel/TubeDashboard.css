@@ -12,7 +12,10 @@ div.TubeDashboard table tr div.lineName{
     font-size: larger;
 }
 
-div.TubeDashboard table tr .minordelays, div.TubeDashboard table tr .partsuspended{
+div.TubeDashboard table tr .severedelays,
+div.TubeDashboard table tr .minordelays,
+div.TubeDashboard table tr .partsuspended,
+div.TubeDashboard table tr .partclosure{
     border-style: dashed;
     border-color: red;
     border-width: 3px;

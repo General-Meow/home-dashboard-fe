@@ -1,6 +1,6 @@
 
 - docker build -t generalmeow/home-dashboard-fe .
-- docker run -v host_build_dir:/app/build generalmeow/home-dashboard-fe
+- docker run -p 3001:80 general-meow/home-dashboard-fe
 
 
 # Getting Started with Create React App

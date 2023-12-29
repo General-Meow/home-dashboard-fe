@@ -15,13 +15,13 @@ const router = createBrowserRouter(
             errorElement: <ErrorPage/>
         },
         {
-            path: "/home-dashboard",
+            path: "/home-dashboard/",
             element: <App/>,
             errorElement: <ErrorPage/>
         },
     ],
     {
-        basename: "/home-dashboard"
+        basename: "/home-dashboard/"
     }
 );
 

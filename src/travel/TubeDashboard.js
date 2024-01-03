@@ -53,7 +53,9 @@ function TubeDashboard() {
             .then(response => {
                 initState(response);
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error('Error thrown while getting data', error);
+            })
     }, [state]);
 
     const resetState = function () {

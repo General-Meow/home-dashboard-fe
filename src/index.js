@@ -6,22 +6,22 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import ErrorPage from "./ErrorPage";
+import OctopusDetails from "./octopus/OctopusDetails";
 
 const router = createBrowserRouter(
     [
         {
             path: "/",
             element: <App/>,
-            errorElement: <ErrorPage/>
+            errorElement: <ErrorPage/>,
         },
         {
-            path: "/home-dashboard/",
-            element: <App/>,
-            errorElement: <ErrorPage/>
-        },
+            path: "octopus-details",
+            element: <OctopusDetails/>
+        }
     ],
     {
-        basename: "/home-dashboard/"
+        basename: "/home-dashboard"
     }
 );
 

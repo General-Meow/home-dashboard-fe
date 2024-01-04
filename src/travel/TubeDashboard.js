@@ -56,6 +56,7 @@ function TubeDashboard() {
             .catch(error => {
                 console.error('Error thrown while getting data', error);
             })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state]);
 
     const resetState = function () {

@@ -23,7 +23,7 @@ function WeatherDashboard() {
       const hour = hourDate.toLocaleTimeString();
       const imageSrc = hourOfWeather.description.replaceAll(' ', '-').toLowerCase().concat('.png');
       let style = '';
-      if (asOfDate.getHours() == hourDate.getHours()) {
+      if (asOfDate.getHours() === hourDate.getHours()) {
         style = 'now';
         fromNow = true;
       }
@@ -31,7 +31,7 @@ function WeatherDashboard() {
       if (fromNow) {
         result.push((
             <tr key={`weather` + hour} className={style}>
-              <td><img title={hourOfWeather.description} src={'home-dashboard/'+imageSrc}/></td>
+              <td><img title={hourOfWeather.description} src={'home-dashboard/'+imageSrc} alt="weather description"/></td>
               <td>Time: {hour} </td>
               <td>Temp: {hourOfWeather.tempurature}c</td>
               <td>Chance of rain: {hourOfWeather.chanceOfRain} </td>
@@ -53,6 +53,7 @@ function WeatherDashboard() {
     .catch(error => {
       console.error(error);
     })
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reset])
 
   const resetState = function () {

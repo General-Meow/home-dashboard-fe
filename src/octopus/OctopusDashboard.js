@@ -35,6 +35,7 @@ const OctopusDashboard = props => {
 
     useEffect(() => {
         initState();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [state])
 
     const resetState = function () {

@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import OctopusDashboard from './octopus/OctopusDashboard'
 import TubeDashboard from './travel/TubeDashboard'

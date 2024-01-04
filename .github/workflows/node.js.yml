@@ -27,7 +27,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: build
+    - run: npm run build
+
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v3
 

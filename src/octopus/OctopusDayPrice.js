@@ -15,8 +15,7 @@ const OctopusDayPrice = props => {
 
   return (
       <div className='OctopusDayPrice'>
-        <h3>{dayText}</h3>
-        <OctopusPriceList dayPrices={dayPrices}></OctopusPriceList>
+        <OctopusPriceList dayPrices={dayPrices} header={dayText}></OctopusPriceList>
       </div>
   );
 }

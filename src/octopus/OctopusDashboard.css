@@ -10,7 +10,6 @@ div.prices {
     flex-direction: row;
     flex-wrap: wrap;
     align-content: space-around;
-    /*align-items: flex-start;*/
 }
 
 

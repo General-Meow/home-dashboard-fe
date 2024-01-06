@@ -1,4 +1,5 @@
 import './OctopusPriceList.css';
+import {Table, TableBody, TableCell, TableContainer, TableHead, TableRow} from "@mui/material";
 
 const parseMintutes = function (minutes) {
     if (minutes === 0) {
@@ -36,11 +37,11 @@ const octopusPriceList = props => {
             const toDateStr = `${parseHours(toDate.getUTCHours())}:${parseMintutes(toDate.getUTCMinutes())}`;
             const liIndex = `octoList-${index}`
             let rowStyle = '';
-            if(price < 15) {
+            if (price < 15) {
                 rowStyle = "green";
             } else if (price < 20) {
                 rowStyle = "lightOrange";
-            } else if(price < 25) {
+            } else if (price < 25) {
                 rowStyle = "orange";
             } else if (price < 35) {
                 rowStyle = "darkOrange";
@@ -50,28 +51,36 @@ const octopusPriceList = props => {
             const now = new Date();
             const fromPriceDate = new Date(element.fromDateTime);
             const toPriceDate = new Date(element.toDateTime);
-            if ( (!foundNow) && (fromPriceDate <= now) && (now <= toPriceDate)) {
+            if ((!foundNow) && (fromPriceDate <= now) && (now <= toPriceDate)) {
                 rowStyle = rowStyle + ' now';
                 foundNow = true;
             }
 
             return (
-                <tr key={liIndex} className={rowStyle}>
-                    <td>{fromDateStr}-{toDateStr}</td>
-                    <td>{price}p</td>
-                </tr>
+                <TableRow key={liIndex} className={rowStyle}>
+                    <TableCell>{fromDateStr}-{toDateStr}</TableCell>
+                    <TableCell>{price}p</TableCell>
+                </TableRow>
             )
         })
 
     return (
         <div className='OctopusPriceList'>
-            <table>
-                <tbody>
-                    {prices}
-                </tbody>
-            </table>
+            <TableContainer>
+                <Table size="small" aria-label="a dense table">
+                    <TableHead>
+                        <TableRow>
+                            <TableCell align="center" colSpan={2}>{props.header}</TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                        {prices}
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </div>
-    );
+    )
+        ;
 }
 
 export default octopusPriceList;

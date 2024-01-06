@@ -2,12 +2,12 @@ div.OctopusPriceList {
     display: block;
 }
 
-div.OctopusPriceList table {
-    width: 100%;
-    border-spacing: 0px;
-    border: black solid 1px;
-    margin: 1px;
-}
+/*div.OctopusPriceList table {*/
+/*    width: 100%;*/
+/*    border-spacing: 0px;*/
+/*    border: black solid 1px;*/
+/*    margin: 1px;*/
+/*}*/
 
 div.OctopusPriceList table tr.green td{
     background: lightgreen;

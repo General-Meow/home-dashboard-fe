@@ -4,6 +4,7 @@ import axios from "axios";
 import OctopusDayPrice from "./OctopusDayPrice";
 import {Link} from "react-router-dom";
 
+
 const OctopusDashboard = props => {
 
     // const todaysPricesUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/electric-prices';

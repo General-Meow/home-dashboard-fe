@@ -9,6 +9,10 @@ div.Weather table img {
     height: 50px;
 }
 
+div.Weather table tr td {
+    border: none;
+}
+
 div.Weather table {
     border-collapse: collapse;
 }

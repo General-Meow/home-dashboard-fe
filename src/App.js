@@ -3,6 +3,8 @@ import OctopusDashboard from './octopus/OctopusDashboard'
 import TubeDashboard from './travel/TubeDashboard'
 import WeatherDashboard from './weather/WeatherDashboard'
 import GivenergyDashboard from "./solar/GivenergyDashboard";
+import React from "react";
+
 
 function App() {
     return (

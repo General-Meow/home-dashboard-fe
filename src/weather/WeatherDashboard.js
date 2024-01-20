@@ -1,80 +1,111 @@
 import './WeatherDashboard.css'
 import {useEffect, useState} from "react";
 import axios from 'axios';
+import {Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
 
 function WeatherDashboard() {
-  let weatherUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/todays-weather';
-  if(document.location.host.indexOf('localhost') >= 0) {
-    weatherUrl = 'http://localhost:3000/todays-weather';
-  }
-
-  const [day, setDay] = useState({});
-  const [hourlyWeather, setHourlyWeather] = useState([]);
-  const [asOfDateTime, setAsOfDateTime] = useState([]);
-  const [reset, setReset] = useState([]);
-
-  const initState = function(response) {
-    const result = [];
-    var asOfDate = new Date(response.data.asOfDateTime);
-    let fromNow = false;
-
-    for (let hourOfWeather of response.data.hourlyWeatherArray) {
-      var hourDate = new Date(hourOfWeather.hour);
-      const hour = hourDate.toLocaleTimeString();
-      const imageSrc = hourOfWeather.description.replaceAll(' ', '-').toLowerCase().concat('.png');
-      let style = '';
-      if (asOfDate.getHours() === hourDate.getHours()) {
-        style = 'now';
-        fromNow = true;
-      }
-
-      if (fromNow) {
-        result.push((
-            <tr key={`weather` + hour} className={style}>
-              <td><img title={hourOfWeather.description} src={'home-dashboard/'+imageSrc} alt="weather description"/></td>
-              <td>Time: {hour} </td>
-              <td>Temp: {hourOfWeather.tempurature}c</td>
-              <td>Chance of rain: {hourOfWeather.chanceOfRain} </td>
-            </tr>
-        ))
-      };
+    let todaysWeatherUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/todays-weather';
+    let forecastWeatherUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/forecast-weather';
+    if (document.location.host.indexOf('localhost') >= 0) {
+        todaysWeatherUrl = 'http://localhost:3000/todays-weather';
+        forecastWeatherUrl = 'http://localhost:3000/forecast-weather';
     }
 
-    setDay({"day": response.data.day, "description": response.data.description});
-    setHourlyWeather(result);
-    setAsOfDateTime(asOfDate)
-  }
+    const [day, setDay] = useState({});
+    const [todaysHourlyWeather, setTodaysHourlyWeather] = useState([]);
+    const [forecastHourlyWeather, setForecastHourlyWeather] = useState([]);
+    const [asOfDateTime, setAsOfDateTime] = useState([]);
+    const [reset, setReset] = useState([]);
 
-  useEffect(() =>{
-    axios.get(weatherUrl)
-    .then(response => {
-      initState(response);
-    })
-    .catch(error => {
-      console.error(error);
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [reset])
+    const initWeatherState = function (data, setState, isTomorrow) {
+        const table = [];
+        const result = [];
+        var asOfDate = new Date(data.asOfDateTime);
+        let fromNow = false;
+      console.log('chicken')
+      console.log(data)
 
-  const resetState = function () {
-    setReset(new Date());
-  }
+        for (let hourOfWeather of data.hourlyWeatherArray) {
 
-  const TEN_MINUTES = 600000;
-  setInterval(resetState, TEN_MINUTES);
+            var hourDate = new Date(hourOfWeather.hour);
+            const hour = hourDate.toLocaleTimeString();
+            const imageSrc = hourOfWeather.description.replaceAll(' ', '-').toLowerCase().concat('.png');
+            let style = '';
+            if (asOfDate.getHours() === hourDate.getHours()) {
+                style = 'now';
+                fromNow = true;
+            }
 
-  return (
-      <div className='Weather'>
-        <h2>Weather</h2>
-        <div>
-          <h4>{day.day} - {day.description} - {asOfDateTime.toLocaleString()}</h4>
-          <table>
-            <tbody>
-              {hourlyWeather}
-            </tbody>
-          </table>
+            if (fromNow || isTomorrow) {
+                result.push((
+                    <TableRow key={`weather` + hour} className={style}>
+                        <TableCell><img title={hourOfWeather.description} src={'home-dashboard/' + imageSrc}
+                                        alt="weather description"/></TableCell>
+                        <TableCell>T: {hour} </TableCell>
+                        <TableCell>{hourOfWeather.tempurature}c</TableCell>
+                        <TableCell>rain%: {hourOfWeather.chanceOfRain} </TableCell>
+                    </TableRow>
+                ))
+            }
+            ;
+        }
+
+      table.push(
+          <Table size="small" aria-label="a dense table">
+            <TableHead>
+              <TableRow>
+                <TableCell
+                    colSpan='4'>{day.day} - {day.description} - {asOfDateTime.toLocaleString()}</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {result}
+            </TableBody>
+          </Table>
+      );
+
+        setDay({"day": data.day, "description": data.description});
+        setState(table);
+        setAsOfDateTime(asOfDate)
+    }
+
+    useEffect(() => {
+        axios.get(todaysWeatherUrl)
+            .then(response => {
+                initWeatherState(response.data, setTodaysHourlyWeather, false);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+
+        axios.get(forecastWeatherUrl)
+            .then(response => {
+                initWeatherState(response.data.week[0], setForecastHourlyWeather, true);
+            })
+            .catch(error => {
+                console.error(error);
+            })
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [reset])
+
+    const resetState = function () {
+        setReset(new Date());
+    }
+
+    const TEN_MINUTES = 600000;
+    setInterval(resetState, TEN_MINUTES);
+
+    return (
+        <div className='Weather'>
+            <h2>Weather</h2>
+            <div className='today'>
+              {todaysHourlyWeather}
+            </div>
+          <div className='tomorrow'>
+              {forecastHourlyWeather}
+            </div>
         </div>
-      </div>
-  );
+    );
 }
+
 export default WeatherDashboard;

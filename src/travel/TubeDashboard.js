@@ -1,6 +1,7 @@
 import './TubeDashboard.css'
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {Table, TableBody, TableCell, TableRow} from "@mui/material";
 
 
 const status = function (line, statuses) {
@@ -11,7 +12,11 @@ const status = function (line, statuses) {
         const key = line.name + i;
         const classNameText = lineStatus.status.toLowerCase().replace(/ /g,'');
         result.push((
-            <div key={key} className={classNameText}>{lineStatus.status} {lineStatus.description}</div>
+            <TableRow className='line'>
+                <TableCell key={key} className={classNameText}>
+                    {lineStatus.status} {lineStatus.description}
+                </TableCell>
+            </TableRow>
         ))
     }
 
@@ -36,12 +41,16 @@ function TubeDashboard() {
         for (let index in response.data.lineStatuses) {
             const lineStatus = response.data.lineStatuses[index];
             result.push((
-                <tr key={lineStatus.name + ' ' + index} className='line'>
-                    <td>
-                        <div className={lineStatus.id + ' lineName'}>{lineStatus.name}</div>
-                        {status(lineStatus, lineStatus.statuses)}
-                    </td>
-                </tr>
+                <>
+                    <TableRow key={lineStatus.name + ' ' + index} className={lineStatus.id + ' lineName'}>
+                        <TableCell>
+                            {/*<div className={lineStatus.id + ' lineName'}>{lineStatus.name}</div>*/}
+                            {/*{status(lineStatus, lineStatus.statuses)}*/}
+                            {lineStatus.name}
+                        </TableCell>
+                    </TableRow>
+                            {status(lineStatus, lineStatus.statuses)}
+                </>
             ))
         }
         setLineStatuses(result);
@@ -70,11 +79,11 @@ function TubeDashboard() {
         <div className='TubeDashboard'>
             <h2>TFL Status</h2>
             <h4>Date: {asOfDate}</h4>
-            <table>
-                <tbody>
+            <Table size="small" aria-label="a dense table">
+                <TableBody>
                     {lineStatuses}
-                </tbody>
-            </table>
+                </TableBody>
+            </Table>
         </div>
     );
 }

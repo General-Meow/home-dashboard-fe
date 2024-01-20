@@ -31,7 +31,7 @@ const OctopusDashboard = props => {
         .then(response => {
             setTomorrowsPrices(response.data)
         })
-        .catch(error => console.error('HELP! tomorrows prices failed', error));
+        .catch(error =>  console.error('HELP! tomorrows prices failed', error));
     }
 
     useEffect(() => {

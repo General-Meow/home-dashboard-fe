@@ -2,8 +2,6 @@ import './OctopusDashboard.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
 import OctopusDayPrice from "./OctopusDayPrice";
-import {Link} from "react-router-dom";
-
 
 const OctopusDashboard = props => {
 
@@ -51,7 +49,6 @@ const OctopusDashboard = props => {
             <h2>Octopus Electric Prices</h2>
             <h4>
                 {new Date(todaysPrices.asOfDateTime).toLocaleString()}
-                <Link to={`/octopus-details`}>More details</Link>
             </h4>
             <div className='prices'>
                 <OctopusDayPrice dayPrices={todaysPrices}></OctopusDayPrice>

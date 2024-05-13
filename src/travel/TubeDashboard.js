@@ -78,7 +78,7 @@ function TubeDashboard() {
     return (
         <div className='TubeDashboard'>
             <h2>TFL Status</h2>
-            <h4>Date: {asOfDate}</h4>
+            <h4>{asOfDate}</h4>
             <Table size="small" aria-label="a dense table">
                 <TableBody>
                     {lineStatuses}

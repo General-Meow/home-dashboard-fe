@@ -10,8 +10,8 @@ const OctopusDashboard = props => {
     let tomorrowsPricesUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/tomorrows-electric-prices';
 
     if(document.location.host.indexOf('localhost') >= 0) {
-        todaysPricesUrl = 'http://localhost/service/todays-electric-prices';
-        tomorrowsPricesUrl = 'http://localhost/service/tomorrows-electric-prices';
+        todaysPricesUrl = 'http://localhost:3000/todays-electric-prices';
+        tomorrowsPricesUrl = 'http://localhost:3000/tomorrows-electric-prices';
     }
 
     const [todaysPrices, setTodaysPrices] = useState([])

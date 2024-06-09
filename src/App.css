@@ -2,18 +2,12 @@
   font-family: Roboto, Helvetica;
 }
 
-.App main {
-  text-align: center;
+.App > main.dashboard {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
 }
 
-.App main > div {
-  height: auto;
-  display: inline-block;
-  width: 400px;
-}
 
 .App header {
   text-align: center;

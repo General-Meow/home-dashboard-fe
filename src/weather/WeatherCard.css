@@ -1,0 +1,19 @@
+.WeatherCard {
+    margin-bottom: 10px;
+}
+
+.WeatherCard .subheading {
+    text-align: center;
+}
+
+.WeatherCard footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+.WeatherCard footer div.day {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+}

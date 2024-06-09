@@ -1,0 +1,121 @@
+.TravelCard {
+    margin-bottom: 10px;
+
+}
+.TravelCard section.left {
+    float: left;
+    width: 200px;
+}
+.TravelCard section.busses .MuiTypography-h6 {
+    text-align: center;
+    background-color: red;
+}
+
+.TravelCard section.busses .busRouteDescription {
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: rgb(247, 249, 250);
+}
+
+.TravelCard section.busses .busRouteTime {
+    background-color: rgb(225, 228, 232);
+}
+
+
+
+.TravelCard section.right {
+    float: right;
+    width: 200px;
+
+}
+
+.TravelCard section.trains .MuiTypography-h6 {
+    text-align: center;
+    background-color: rgb(0, 25, 168);
+    color: white;
+}
+
+.TravelCard section.trains .northern {
+    border: 3px red dotted;
+    background-color: black;
+    color: white;
+}
+
+.TravelCard section.trains .victoria {
+    border: 3px red dotted;
+    background-color: rgb(3, 155, 229);
+}
+
+.TravelCard section.trains .circle {
+    border: 3px red dotted;
+    background-color: rgb(255, 200, 10);
+}
+
+.TravelCard section.trains .moreIssues {
+    background-color: lightcoral;
+}
+
+.TravelCard section.trains .overground {
+    background-color: orange;
+}
+
+.TravelCard section.trains .tube .bakerloo {
+    background: #894e24;
+}
+
+.TravelCard section.trains .tube .central {
+    background: #dc241f;
+}
+
+.TravelCard section.trains .tube .elizabeth {
+    background: #6950a1;
+}
+
+.TravelCard section.trains .tube .hammersmith-city {
+    background: #d799af;
+}
+
+.TravelCard section.trains .tube .circle {
+    background: #ffce00;
+}
+
+.TravelCard section.trains .tube .district {
+    background: #007229;
+}
+
+.TravelCard section.trains .tube .jubilee {
+    background: #6a7278;
+}
+
+.TravelCard section.trains .tube .metropolitan {
+    background: #751056;
+    color: white;
+}
+
+.TravelCard section.trains .tube .northern {
+    background: #000;
+    color: white;
+}
+
+.TravelCard section.trains .tube .piccadilly {
+    background: #0019a8;
+    color: white;
+}
+
+.TravelCard section.trains .tube .victoria {
+    background: #00a0e2;
+}
+
+.TravelCard section.trains .tube .waterloo-city {
+    background: #76d0bd;
+}
+
+.TravelCard section.trains .tube .dlr {
+    background: #00afad;
+}
+
+.TravelCard section.trains .tube .london-overground {
+    background: #e86a10;
+}

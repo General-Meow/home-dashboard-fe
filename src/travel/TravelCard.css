@@ -4,7 +4,7 @@
 }
 .TravelCard section.left {
     float: left;
-    width: 200px;
+    width: 48%;
 }
 .TravelCard section.busses .MuiTypography-h6 {
     text-align: center;
@@ -12,7 +12,6 @@
 }
 
 .TravelCard section.busses .busRouteDescription {
-    width: 200px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -24,10 +23,9 @@
 }
 
 
-
 .TravelCard section.right {
     float: right;
-    width: 200px;
+    width: 48%;
 
 }
 

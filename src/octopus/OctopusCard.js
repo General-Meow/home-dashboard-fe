@@ -14,7 +14,7 @@ const OctopusCard = ({energy}) => {
             let toTime = new Date(entry.toDateTime);
             let fromTimeString = `${fromTime.getHours()}:${fromTime.getMinutes()}`;
             let toTimeString = `${toTime.getHours()}:${toTime.getMinutes()}`;
-            return <Typography variant="body2" component="div">{fromTimeString} - {toTimeString} 15.00p, 15.50p</Typography>
+            return <Typography variant="body2" component="div">{fromTimeString} - {toTimeString} {entry.prices}</Typography>
         }
     );
     }
@@ -33,7 +33,7 @@ const OctopusCard = ({energy}) => {
                 <main>
                     <div className='top'>
                         <Typography variant="h4" component="div" gutterBottom>
-                            Current Price: {energy.currentElectricPrice}p Kwh
+                            Current Price: {energy.currentElectricPrice}p
                             <BoltIcon color="secondary" fontSize="large" sx={{position: 'relative', top: '8px'}}/>
                         </Typography>
                         <Divider variant="middle" component="div"/>

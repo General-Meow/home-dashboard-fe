@@ -8,7 +8,19 @@
 }
 
 .OctopusCard header.top > div {
-    width: 200px;
+    width: 48%;
     display: inline-block;
 }
 
+.OctopusCard .sub .time{
+    text-align: right;
+    width: 30%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.OctopusCard .sub .prices {
+    text-align: left;
+    width: 30%;
+    display: inline-block;
+}

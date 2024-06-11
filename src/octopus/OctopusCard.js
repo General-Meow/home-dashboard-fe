@@ -9,14 +9,43 @@ import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 const OctopusCard = ({energy}) => {
     let nextThreeHours = [];
     if (energy !== undefined) {
-        nextThreeHours = energy.next3HoursPriceArr.map(entry => {
-            let fromTime = new Date(entry.fromDateTime);
-            let toTime = new Date(entry.toDateTime);
-            let fromTimeString = `${fromTime.getHours()}:${fromTime.getMinutes()}`;
-            let toTimeString = `${toTime.getHours()}:${toTime.getMinutes()}`;
-            return <Typography variant="body2" component="div">{fromTimeString} - {toTimeString} {entry.prices}</Typography>
+        const nextThreeHoursTemp = energy.next3HoursPriceArr
+            .filter(entry => {
+                let now = new Date();
+                let fromTime = new Date(entry.fromDateTime);
+                let toTime = new Date(entry.toDateTime);
+
+                return (((fromTime < now) && (toTime > now)) || (fromTime > now))
+            })
+            .slice(0, 6);
+
+        console.log('nextThreeHoursTemp', nextThreeHoursTemp);
+        const temp = [];
+        for (let i = 0; i < nextThreeHoursTemp.length; i=i+2) {
+            temp.push(
+                {
+                    fromDateTime: nextThreeHoursTemp[i].fromDateTime,
+                    toDateTime: nextThreeHoursTemp[i+1].toDateTime,
+                    prices: `${nextThreeHoursTemp[i].price}p, ${nextThreeHoursTemp[i+1].price}p`
+                }
+                );
         }
-    );
+
+        console.log('temp', temp)
+
+        nextThreeHours = temp.map(entry => {
+                    let fromTime = new Date(entry.fromDateTime);
+                    let toTime = new Date(entry.toDateTime);
+                    let fromTimeString = fromTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    let toTimeString = toTime.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+                    return (
+                        <div>
+                            <Typography variant="body2" component="span" className='time'>{fromTimeString} - {toTimeString}</Typography>
+                            <Typography variant="body2" component="span" className='prices'>{entry.prices}</Typography>
+                        </div>
+                    );
+                }
+            );
     }
 
     let card = (

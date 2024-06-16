@@ -19,9 +19,8 @@ const OctopusCard = ({energy}) => {
             })
             .slice(0, 6);
 
-        console.log('nextThreeHoursTemp', nextThreeHoursTemp);
         const temp = [];
-        for (let i = 0; i < nextThreeHoursTemp.length; i=i+2) {
+        for (let i = 0; i < nextThreeHoursTemp.length - 1; i=i+2) {
             temp.push(
                 {
                     fromDateTime: nextThreeHoursTemp[i].fromDateTime,
@@ -30,8 +29,6 @@ const OctopusCard = ({energy}) => {
                 }
                 );
         }
-
-        console.log('temp', temp)
 
         nextThreeHours = temp.map(entry => {
                     let fromTime = new Date(entry.fromDateTime);
@@ -85,7 +82,7 @@ const OctopusCard = ({energy}) => {
     }
 
     return (
-        <Card raised={true} sx={{width: 450, height: 240}} className='OctopusCard' gutterBottom>
+        <Card raised={true} sx={{width: 450, height: 240}} className='OctopusCard'>
             {card}
         </Card>
     );

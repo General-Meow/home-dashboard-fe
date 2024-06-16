@@ -10,7 +10,6 @@ import ListItemText from '@mui/material/ListItemText';
 
 const TravelCard = ({travelData}) => {
 
-
     let card = (
         <CardContent></CardContent>
     );
@@ -24,7 +23,8 @@ const TravelCard = ({travelData}) => {
                         <Typography variant="body2" component="div" className='busRouteDescription'>
                             {route.routeNumber} from {route.routeFrom} to {route.routeTo}</Typography>
                         <Typography variant="body2" component="div" className='busRouteTime' sx={{textAlign: 'center'}}>
-                            {route.nextBusTimesArr.map(time => `${time} `)}
+                            {route.nextBusTimesArr.map(element => element.busAtTimeInMinutes)
+                                .sort((a, b) => a - b ).map(busAtTimeInMinutes => `${busAtTimeInMinutes}, `)}
                         </Typography>
                     </ListItemText>
                 </ListItem>
@@ -56,14 +56,31 @@ const TravelCard = ({travelData}) => {
             );
         }
 
+        let overgroundTimes = travelData.trainRouteArr
+            .filter(route => !route.isUnderground)
+            .filter(route => route.lineName === 'London Overground')
+            .flatMap(route => route.nextTimesArr)
+            .flat()
+            .map(time => new Date(time))
+            .filter(time => {
+                const now = new Date();
+                return time > now;
+            })
+            .slice(0, 2)
+            .map(time => `${time.toLocaleTimeString()}`);
+        ;
+
+        console.log('chicken', overgroundTimes);
+
         let overground = travelData.trainRouteArr
             .filter(route => !route.isUnderground)
+            .filter(route => route.lineName === 'London Overground')
             .map(route => (
                 <ListItem disablePadding>
                     <ListItemText className='overground' sx={{margin: 0}}>
-                        <Typography variant="body2" component="div">{route.lineName} at Canada Water</Typography>
+                        <Typography variant="body2" component="div">{route.lineName} From New cross to Canada Water</Typography>
                         <Typography variant="body2" component="div" sx={{textAlign: 'center'}}>
-                            {route.nextTimesArr.map(time => `${time} `)}
+                            {overgroundTimes.map(time => `${time} `)}
                         </Typography>
                     </ListItemText>
                 </ListItem>
@@ -79,7 +96,6 @@ const TravelCard = ({travelData}) => {
                 <main>
                     <section className='left busses'>
                         <Typography variant="h6" component="div" gutterBottom>Buses</Typography>
-
                         <div>
                             <List dense disablePadding>
                                 {busRoutes}

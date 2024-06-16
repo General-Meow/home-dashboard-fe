@@ -34,7 +34,7 @@ const SolarCard = ({solarData}) => {
 
     if (solarData !== undefined) {
 
-        let entries = solarData.entries
+        let entries = solarData.entries.entryArr
             .map(entry => {
                 return (
                     <ListItem>

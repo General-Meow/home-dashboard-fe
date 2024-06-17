@@ -40,6 +40,7 @@ const WeatherCard = ({weatherData}) => {
 
     let card = (
         <CardContent>
+            <Typography variant="body1" component="div">No data available</Typography>
         </CardContent>
     );
 

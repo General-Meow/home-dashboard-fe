@@ -47,6 +47,7 @@ const OctopusCard = ({energy}) => {
 
     let card = (
         <CardContent>
+            <Typography variant="body1" component="div">No data available</Typography>
         </CardContent>
     );
     if (energy !== undefined) {

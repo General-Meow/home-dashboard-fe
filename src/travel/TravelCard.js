@@ -11,7 +11,9 @@ import ListItemText from '@mui/material/ListItemText';
 const TravelCard = ({travelData}) => {
 
     let card = (
-        <CardContent></CardContent>
+        <CardContent>
+            <Typography variant="body1" component="div">No data available</Typography>
+        </CardContent>
     );
 
     if(travelData !== undefined) {

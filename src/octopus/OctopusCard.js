@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import BoltIcon from '@mui/icons-material/Bolt';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
+import {CardActionArea, CardActions} from "@mui/material";
 
 const OctopusCard = ({energy}) => {
     let nextThreeHours = [];
@@ -53,6 +54,7 @@ const OctopusCard = ({energy}) => {
     if (energy !== undefined) {
         card = (
             <CardContent>
+                {/*<CardActionArea component={RouterLink} to="/questions">*/}
                 <header className='top'>
                     <Typography variant="body2" component="div">{energy.alertMessage}</Typography>
                     <Typography variant="body2" component="div">{energy.timestamp}</Typography>
@@ -78,6 +80,7 @@ const OctopusCard = ({energy}) => {
                         {nextThreeHours}
                     </div>
                 </main>
+                {/*</CardActionArea>*/}
             </CardContent>
         );
     }

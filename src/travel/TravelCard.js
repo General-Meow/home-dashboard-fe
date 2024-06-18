@@ -97,7 +97,7 @@ const TravelCard = ({travelData}) => {
                 </header>
                 <main>
                     <section className='left busses'>
-                        <Typography variant="h6" component="div" gutterBottom>Buses</Typography>
+                        <Typography variant="h6" component="div" sx={{ mb: 0 }} gutterBottom>Buses</Typography>
                         <div>
                             <List dense disablePadding>
                                 {busRoutes}
@@ -106,7 +106,7 @@ const TravelCard = ({travelData}) => {
                     </section>
                     <Divider variant="middle" orientation="vertical" component="div"/>
                     <section className='right trains'>
-                        <Typography variant="h6" component="div" gutterBottom>Trains</Typography>
+                        <Typography variant="h6" component="div" sx={{ mb: 0 }} gutterBottom>Trains</Typography>
                         <div>
                             <List dense disablePadding>
                                 {trainRoutes}

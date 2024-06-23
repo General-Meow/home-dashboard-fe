@@ -55,7 +55,7 @@ const WeatherCard = ({weatherData}) => {
                             {icon}
                         </div>
                         <div className='name'>{day.dayName}</div>
-                        <div className='temp'>{day.averageTemp}&deg;C</div>
+                        <div className='temp'>{day.highTemp}&deg;C</div>
                     </div>
                 );
             });
@@ -74,7 +74,7 @@ const WeatherCard = ({weatherData}) => {
                         }}/>{weatherData.todaysWeather.dayName}</Typography>
                         <div className='subheading'>
                             <Typography variant="h5" component="span"
-                                        align="center">{weatherData.todaysWeather.averageTemp}C</Typography>
+                                        align="center">{weatherData.todaysWeather.nowTemp}C</Typography>
                             <div>
                                 <Typography variant="body2" component="span"
                                             align="center">High: {weatherData.todaysWeather.highTemp}C</Typography>

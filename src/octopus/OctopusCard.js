@@ -64,12 +64,13 @@ const OctopusCard = ({energy}) => {
             currentPriceStyle = 'doUse';
         }
 
+        let dfn = new Intl.DateTimeFormat('en-GB', {timeStyle: 'short', dateStyle: 'short'})
         card = (
             <CardContent>
                 {/*<CardActionArea component={RouterLink} to="/questions">*/}
                 <header className='top'>
                     <Typography variant="body2" component="div">{energy.alertMessage}</Typography>
-                    <Typography variant="body2" component="div">{energy.timestamp}</Typography>
+                    <Typography variant="body2" component="div">{dfn.format(new Date(energy.timestamp))}</Typography>
                 </header>
                 <main>
                     <div className='top'>

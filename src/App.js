@@ -30,7 +30,7 @@ function App() {
     const initState = async function () {
         const response = await fetch(dashboardUrl);
         const responseData = await response.json();
-        console.log(responseData);
+
         setDashboardData(responseData);
             // .then(async (response) => {
             //     console.log('got dashboard data');

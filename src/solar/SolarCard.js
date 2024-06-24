@@ -45,10 +45,11 @@ const SolarCard = ({solarData}) => {
                 );
             });
 
+        let dfn = new Intl.DateTimeFormat('en-GB', {timeStyle: 'short', dateStyle: 'short'})
         card = (
             <CardContent>
                 <header className='top'>
-                    <Typography variant="body2" component="div" align="right">{solarData.timestamp}</Typography>
+                    <Typography variant="body2" component="div" align="right">{dfn.format(new Date(solarData.timestamp))}</Typography>
                 </header>
                 <main>
                     <List>

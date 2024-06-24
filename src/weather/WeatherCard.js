@@ -61,11 +61,12 @@ const WeatherCard = ({weatherData}) => {
                 );
             });
 
+        let dfn = new Intl.DateTimeFormat('en-GB', {timeStyle: 'short', dateStyle: 'short'})
 
         card = (
             <CardContent>
                 <header className='top'>
-                    <Typography variant="body2" component="div" align="right">{weatherData.timestamp}</Typography>
+                    <Typography variant="body2" component="div" align="right">{dfn.format(new Date(weatherData.timestamp))}</Typography>
                 </header>
                 <main>
                     <div className='top'>

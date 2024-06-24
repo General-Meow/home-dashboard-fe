@@ -72,8 +72,6 @@ const TravelCard = ({travelData}) => {
             .map(time => `${time.toLocaleTimeString()}`);
         ;
 
-        console.log('chicken', overgroundTimes);
-
         let overground = travelData.trainRouteArr
             .filter(route => !route.isUnderground)
             .filter(route => route.lineName === 'London Overground')
@@ -89,11 +87,11 @@ const TravelCard = ({travelData}) => {
                 )
             );
 
-
+        let dfn = new Intl.DateTimeFormat('en-GB', {timeStyle: 'short', dateStyle: 'short'})
         card = (
             <CardContent>
                 <header className='top'>
-                    <Typography variant="body2" component="div" align="right">{travelData.timestamp}</Typography>
+                    <Typography variant="body2" component="div" align="right">{dfn.format(new Date(travelData.timestamp))}</Typography>
                 </header>
                 <main>
                     <section className='left busses'>

@@ -22,8 +22,6 @@ function WeatherDashboard() {
         const result = [];
         var asOfDate = new Date(data.asOfDateTime);
         let fromNow = false;
-      console.log('chicken')
-      console.log(data)
 
         for (let hourOfWeather of data.hourlyWeatherArray) {
 

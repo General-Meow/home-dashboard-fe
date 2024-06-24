@@ -52,6 +52,18 @@ const OctopusCard = ({energy}) => {
         </CardContent>
     );
     if (energy !== undefined) {
+
+        let currentPriceStyle = 0;
+        if(energy.currentElectricPrice > 20) {
+            currentPriceStyle = 'reallyAvoidUsage';
+        } else if(energy.currentElectricPrice > 13 && energy.currentElectricPrice <= 20) {
+            currentPriceStyle = 'avoidUsage';
+        } else if (energy.currentElectricPrice > 5 && energy.currentElectricPrice <= 13) {
+            currentPriceStyle = 'okUsage';
+        } else {
+            currentPriceStyle = 'doUse';
+        }
+
         card = (
             <CardContent>
                 {/*<CardActionArea component={RouterLink} to="/questions">*/}
@@ -61,7 +73,7 @@ const OctopusCard = ({energy}) => {
                 </header>
                 <main>
                     <div className='top'>
-                        <Typography variant="h4" component="div" gutterBottom>
+                        <Typography variant="h4" component="div" className={currentPriceStyle} gutterBottom>
                             Current Price: {energy.currentElectricPrice}p
                             <BoltIcon color="secondary" fontSize="large" sx={{position: 'relative', top: '8px'}}/>
                         </Typography>

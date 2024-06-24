@@ -54,8 +54,9 @@ const WeatherCard = ({weatherData}) => {
                         <div className='icon'>
                             {icon}
                         </div>
-                        <div className='name'>{day.dayName}</div>
-                        <div className='temp'>{day.highTemp}&deg;C</div>
+                        <Typography variant="body2" component="div" className='name'>{day.dayName}</Typography>
+                        <Typography variant="caption" component="div" align="center" className='forecastTemp'>H: {day.highTemp}&deg;C</Typography>
+                        <Typography variant="caption" component="div" align="center" className='forecastTemp'>L: {day.lowTemp}&deg;C</Typography>
                     </div>
                 );
             });

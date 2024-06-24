@@ -2,6 +2,10 @@
     margin-bottom: 10px;
 }
 
+.WeatherCard .MuiCardContent-root {
+    padding: 5px;
+}
+
 .WeatherCard .subheading {
     text-align: center;
 }
@@ -16,4 +20,14 @@
     width: 60px;
     height: 60px;
     text-align: center;
+}
+
+.WeatherCard footer div.day .name{
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.WeatherCard footer div.day .forecastTemp,
+.WeatherCard footer div.day .forecastTemp{
+    line-height: normal;
 }

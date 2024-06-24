@@ -24,3 +24,19 @@
     width: 30%;
     display: inline-block;
 }
+
+.OctopusCard main div.reallyAvoidUsage {
+    background-color: red;
+}
+
+.OctopusCard main div.avoidUsage {
+    background-color: orange;
+}
+
+.OctopusCard main div.okUsage {
+    background-color: lightgreen;
+}
+
+.OctopusCard main div.doUse {
+    background-color: lightblue;
+}

@@ -22,12 +22,18 @@
     text-align: center;
 }
 
-.WeatherCard footer div.day .name{
+.WeatherCard footer div.day .name {
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .WeatherCard footer div.day .forecastTemp,
-.WeatherCard footer div.day .forecastTemp{
+.WeatherCard footer div.day .forecastTemp {
     line-height: normal;
+}
+
+.WeatherCard main span svg.logoLeft {
+    position: relative;
+    left: 20px;
+    top: 15px;
 }

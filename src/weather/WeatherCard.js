@@ -13,28 +13,71 @@ import ThunderstormIcon from '@mui/icons-material/Thunderstorm';
 import GrainIcon from '@mui/icons-material/Grain';
 import AcUnitIcon from '@mui/icons-material/AcUnit';
 import WavesIcon from '@mui/icons-material/Waves';
+import CloudOutlinedIcon from '@mui/icons-material/CloudOutlined';
+import SleddingIcon from '@mui/icons-material/Sledding';
 
 const WeatherCard = ({weatherData}) => {
 
-    function getIcon(weatherIcon) {
-        if (weatherIcon === 'Cloudy') {
-            return (<CloudIcon fontSize="large"/>);
-        } else if (weatherIcon === 'Sunny') {
-            return (<WbSunnyIcon fontSize="large"/>);
-        } else if (weatherIcon === 'Clear') {
-            return (<ClearAllIcon fontSize="large"/>);
+    function getIcon(weatherIcon, props) {
+        if (weatherIcon === 'Clear sky') {
+            return (
+                <span>
+                    <WbSunnyIcon fontSize="large" sx={props} className='logoLeft'/>
+                    <WbSunnyIcon fontSize="large" sx={props}/>
+                </span>
+            );
+        } else if (weatherIcon === 'Part Cloudy') {
+            return (
+                <span>
+                    <WbSunnyIcon fontSize="large" sx={props} className='logoLeft'/>
+                    <CloudOutlinedIcon fontSize="large" sx={props}/>
+                </span>
+            );
+        } else if (weatherIcon === 'Cloudy') {
+            return (
+                <span>
+                    <CloudOutlinedIcon fontSize="large" sx={props} className='logoLeft'/>
+                    <CloudOutlinedIcon fontSize="large" sx={props}/>
+                </span>
+            );
+        } else if (weatherIcon === 'Fog') {
+            return (<ClearAllIcon fontSize="large" sx={props}/>);
+        } else if (weatherIcon === 'Drizzle') {
+            return (
+                <span>
+                    <WaterDropIcon fontSize="small" sx={props} className='logoLeft'/>
+                    <WaterDropIcon fontSize="small" sx={props}/>
+                </span>
+            );
         } else if (weatherIcon === 'Rain') {
-            return (<WaterDropIcon fontSize="large"/>);
-        } else if (weatherIcon === 'Thunder') {
-            return (<ThunderstormIcon fontSize="large"/>);
+            return (<WaterDropIcon fontSize="large" sx={props}/>);
+        } else if (weatherIcon === 'Heavy Rain') {
+            return (
+                <span>
+                    <WaterDropIcon fontSize="large" sx={props} className='logoLeft'/>
+                    <WaterDropIcon fontSize="large" sx={props}/>
+                </span>
+            );
+        } else if (weatherIcon === 'Freezing Rain') {
+            return (
+                <span>
+                    <AcUnitIcon fontSize="small" sx={props} className='logoLeft'/>
+                    <WaterDropIcon fontSize="small" sx={props}/>
+                </span>
+            );
+        } else if (weatherIcon === 'Snow') {
+            return (<SleddingIcon fontSize="large" sx={props}/>);
+        } else if (weatherIcon === 'Heavy Snow') {
+            return (
+                <span>
+                    <SleddingIcon fontSize="large" sx={props} className='logoLeft'/>
+                    <SleddingIcon fontSize="large" sx={props}/>
+                </span>
+            );
+
+        } else if (weatherIcon === 'Thunderstorm') {
+            return (<ThunderstormIcon fontSize="large" sx={props}/>);
         }
-        // else if(weatherIcon === 'Cloudy') {
-        //     return (<CloudIcon fontSize="large"/>);
-        // }else if() {
-        //     return (<CloudIcon fontSize="large"/>);
-        // }else if() {
-        //     return (<CloudIcon fontSize="large"/>);
-        // }
         return;
     }
 
@@ -55,8 +98,10 @@ const WeatherCard = ({weatherData}) => {
                             {icon}
                         </div>
                         <Typography variant="body1" component="div" className='name'>{day.dayName}</Typography>
-                        <Typography variant="caption" component="div" align="center" className='forecastTemp'>H: {day.highTemp}&deg;C</Typography>
-                        <Typography variant="caption" component="div" align="center" className='forecastTemp'>L: {day.lowTemp}&deg;C</Typography>
+                        <Typography variant="caption" component="div" align="center"
+                                    className='forecastTemp'>H: {day.highTemp}&deg;C</Typography>
+                        <Typography variant="caption" component="div" align="center"
+                                    className='forecastTemp'>L: {day.lowTemp}&deg;C</Typography>
                     </div>
                 );
             });
@@ -66,14 +111,15 @@ const WeatherCard = ({weatherData}) => {
         card = (
             <CardContent>
                 <header className='top'>
-                    <Typography variant="body2" component="div" align="right">{dfn.format(new Date(weatherData.timestamp))}</Typography>
+                    <Typography variant="body2" component="div"
+                                align="right">{dfn.format(new Date(weatherData.timestamp))}</Typography>
                 </header>
                 <main>
                     <div className='top'>
-                        <Typography variant="h4" component="div" align="center"><WbSunnyIcon fontSize="large" sx={{
-                            top: 8,
-                            position: 'relative'
-                        }}/>{weatherData.todaysWeather.dayName}</Typography>
+                        <Typography variant="h4" component="div" align="center">
+                            {getIcon(weatherData.todaysWeather.weatherIcon, {top: 8, position: 'relative'})}
+                            {weatherData.todaysWeather.dayName}
+                        </Typography>
                         <div className='subheading'>
                             <Typography variant="h5" component="span"
                                         align="center">{weatherData.todaysWeather.nowTemp}C</Typography>

@@ -26,7 +26,7 @@ const TravelCard = ({travelData}) => {
                             {route.routeNumber} from {route.routeFrom} to {route.routeTo}</Typography>
                         <Typography variant="body2" component="div" className='busRouteTime' sx={{textAlign: 'center'}}>
                             {route.nextBusTimesArr.map(element => element.busAtTimeInMinutes)
-                                .sort((a, b) => a - b ).map(busAtTimeInMinutes => `${busAtTimeInMinutes}, `)}
+                                .sort((a, b) => a - b ).map(busAtTimeInMinutes => ` ${busAtTimeInMinutes}m `)}
                         </Typography>
                     </ListItemText>
                 </ListItem>

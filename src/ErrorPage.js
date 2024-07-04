@@ -1,7 +1,7 @@
 const ErrorPage = props => {
     return (
         <div>
-            <h1>Uhoh</h1>
+            <img src='./img.png'/>
         </div>
     )
 }

@@ -10,6 +10,8 @@ const ErrorPage = props => {
     let errorMessage = 'not sure what happened';
     if (errorObj.error && errorObj.error.message) {
         errorMessage = errorObj.error.message;
+    } else if(errorObj instanceof TypeError) {
+        errorMessage = errorObj.stack;
     }
     return (
         <div class='ErrorComponent'>

@@ -5,7 +5,7 @@ import {useRouteError} from "react-router";
 
 const ErrorPage = props => {
     let errorObj = useRouteError();
-    console.error("error: ", errorObj.error.message);
+    console.error("error: ", errorObj);
     return (
         <div class='ErrorComponent'>
             <Typography variant="h3" component="div" className='errorHeader'>
@@ -16,7 +16,7 @@ const ErrorPage = props => {
                     <img src={errorImage} alt='error image' className='errorImage'/>
                 </span>
                 <span class='element'>
-                    {errorObj.error.message}
+                    {errorObj.error && errorObj.error.message ? errorObj.error.message : errorObj.error.data}
                 </span>
             </main>
 

@@ -13,6 +13,7 @@ import Typography from "@mui/material/Typography";
 import {useEffect, useState} from "react";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import axios from "axios";
+import CurrentTime from "./shared/CurrentTime";
 
 
 
@@ -60,6 +61,7 @@ function App() {
                 <Typography variant="h3" component="div" gutterBottom>
                     Home dashboard <DashboardIcon fontSize='large'/>
                 </Typography>
+                <CurrentTime></CurrentTime>
             </header>
             <main className="dashboard">
                 <OctopusCard energy={dashboardData.energy}/>

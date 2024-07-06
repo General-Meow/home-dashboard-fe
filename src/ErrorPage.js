@@ -13,6 +13,8 @@ const ErrorPage = props => {
     } else if(errorObj instanceof TypeError) {
         errorMessage = errorObj.stack;
     }
+
+    let ifAllElseFails = JSON.stringify(errorObj);
     return (
         <div class='ErrorComponent'>
             <Typography variant="h3" component="div" className='errorHeader'>
@@ -26,6 +28,9 @@ const ErrorPage = props => {
                     {errorMessage}
                 </span>
             </main>
+            <div>
+                {ifAllElseFails}
+            </div>
 
         </div>
     )

@@ -10,15 +10,19 @@ import {CardActionArea, CardActions} from "@mui/material";
 const OctopusCard = ({energy}) => {
     let nextThreeHours = [];
     if (energy !== undefined) {
-        const nextThreeHoursTemp = energy.next3HoursPriceArr
-            .filter(entry => {
-                let now = new Date();
-                let fromTime = new Date(entry.fromDateTime);
-                let toTime = new Date(entry.toDateTime);
 
-                return (((fromTime < now) && (toTime > now)) || (fromTime > now))
-            })
-            .slice(0, 6);
+        let nextThreeHoursTemp = [];
+        if( energy.next3HoursPriceArr) {
+            nextThreeHoursTemp = energy.next3HoursPriceArr
+                .filter(entry => {
+                    let now = new Date();
+                    let fromTime = new Date(entry.fromDateTime);
+                    let toTime = new Date(entry.toDateTime);
+
+                    return (((fromTime < now) && (toTime > now)) || (fromTime > now))
+                })
+                .slice(0, 6);
+        }
 
         const temp = [];
         for (let i = 0; i < nextThreeHoursTemp.length - 1; i=i+2) {

@@ -12,7 +12,7 @@ const OctopusCard = ({energy}) => {
     if (energy !== undefined) {
 
         let nextThreeHoursTemp = [];
-        if( energy.next3HoursPriceArr) {
+        if(!energy.next3HoursPriceArr) {
             nextThreeHoursTemp = energy.next3HoursPriceArr
                 .filter(entry => {
                     let now = new Date();

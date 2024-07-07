@@ -9,7 +9,7 @@ import {CardActionArea, CardActions} from "@mui/material";
 
 const OctopusCard = ({energy}) => {
     let nextThreeHours = [];
-    if (energy !== undefined) {
+    if (energy) {
 
         let nextThreeHoursTemp = [];
         if(energy.next3HoursPriceArr) {
@@ -55,7 +55,7 @@ const OctopusCard = ({energy}) => {
             <Typography variant="body1" component="div">No data available</Typography>
         </CardContent>
     );
-    if (energy !== undefined) {
+    if (energy) {
 
         let currentPriceStyle = 0;
         if(energy.currentElectricPrice > 20) {

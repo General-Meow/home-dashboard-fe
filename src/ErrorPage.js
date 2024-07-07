@@ -10,11 +10,11 @@ const ErrorPage = props => {
     let errorMessage = 'not sure what happened';
     if (errorObj.error && errorObj.error.message) {
         errorMessage = errorObj.error.message;
-    } else if(errorObj instanceof TypeError) {
-        errorMessage = errorObj.stack;
+    } else if(errorObj instanceof Error) {
+        errorMessage = JSON.stringify(errorObj);;
     }
 
-    let ifAllElseFails = JSON.stringify(errorObj);
+    let ifAllElseFails = 'Dunno'
     return (
         <div class='ErrorComponent'>
             <Typography variant="h3" component="div" className='errorHeader'>

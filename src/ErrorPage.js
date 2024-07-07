@@ -7,14 +7,18 @@ const ErrorPage = props => {
     let errorObj = useRouteError();
     console.error("chicken: ", errorObj);
 
-    let errorMessage = 'not sure what happened';
+    let errorMessage = { message : 'not sure what happened' };
+
     if (errorObj.error && errorObj.error.message) {
         errorMessage = errorObj.error.message;
     } else if(errorObj instanceof Error) {
-        errorMessage = JSON.stringify(errorObj);;
+        errorMessage.message = errorObj.message;
+        errorMessage.name = errorObj.name;
+        errorMessage.stack = JSON.stringify(errorObj.stack);
     }
 
-    let ifAllElseFails = 'Dunno'
+    errorMessage = JSON.stringify(errorMessage);
+
     return (
         <div class='ErrorComponent'>
             <Typography variant="h3" component="div" className='errorHeader'>
@@ -28,9 +32,6 @@ const ErrorPage = props => {
                     {errorMessage}
                 </span>
             </main>
-            <div>
-                {ifAllElseFails}
-            </div>
 
         </div>
     )

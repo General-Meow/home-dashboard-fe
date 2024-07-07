@@ -16,33 +16,41 @@ const TravelCard = ({travelData}) => {
         </CardContent>
     );
 
-    if(travelData !== undefined) {
+    if(travelData) {
+        let busRoutes = [];
 
-        let busRoutes = travelData.busRouteArr.map(route => {
-            return (
-                <ListItem disablePadding>
-                    <ListItemText sx={{margin: 0}}>
-                        <Typography variant="body2" component="div" className='busRouteDescription'>
-                            {route.routeNumber} from {route.routeFrom} to {route.routeTo}</Typography>
-                        <Typography variant="body2" component="div" className='busRouteTime' sx={{textAlign: 'center'}}>
-                            {route.nextBusTimesArr.map(element => element.busAtTimeInMinutes)
-                                .sort((a, b) => a - b ).map(busAtTimeInMinutes => ` ${busAtTimeInMinutes}m `)}
-                        </Typography>
-                    </ListItemText>
-                </ListItem>
-            );
-        });
+        if (travelData.busRouteArr) {
+            busRoutes = travelData.busRouteArr.map(route => {
+                return (
+                    <ListItem disablePadding>
+                        <ListItemText sx={{margin: 0}}>
+                            <Typography variant="body2" component="div" className='busRouteDescription'>
+                                {route.routeNumber} from {route.routeFrom} to {route.routeTo}</Typography>
+                            <Typography variant="body2" component="div" className='busRouteTime'
+                                        sx={{textAlign: 'center'}}>
+                                {route.nextBusTimesArr.map(element => element.busAtTimeInMinutes)
+                                    .sort((a, b) => a - b).map(busAtTimeInMinutes => ` ${busAtTimeInMinutes}m `)}
+                            </Typography>
+                        </ListItemText>
+                    </ListItem>
+                );
+            });
+        }
 
-        let trainRoutes = travelData.trainRouteArr
-            .filter(route => route.isUnderground)
-            .filter(route => !route.statusOk)
-            .slice(0, 3).map(route => {
-            return (
-                <ListItem disablePadding className='tube'>
-                    <ListItemText className={route.lineName.toLowerCase()} sx={{margin: 0}}>{route.lineName}</ListItemText>
-                </ListItem>
-            );
-        });
+        let trainRoutes = [];
+
+        if(travelData.trainRouteArr) {
+            travelData.trainRouteArr
+                .filter(route => route.isUnderground)
+                .filter(route => !route.statusOk)
+                .slice(0, 3).map(route => {
+                return (
+                    <ListItem disablePadding className='tube'>
+                        <ListItemText className={route.lineName.toLowerCase()} sx={{margin: 0}}>{route.lineName}</ListItemText>
+                    </ListItem>
+                );
+            });
+        }
 
         if(travelData.trainRouteArr.filter(route => !route.statusOk).length > 3) {
             trainRoutes.push(

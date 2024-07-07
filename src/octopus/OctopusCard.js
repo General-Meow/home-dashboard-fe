@@ -71,7 +71,7 @@ const OctopusCard = ({energy}) => {
         let dfn = new Intl.DateTimeFormat('en-GB', {timeStyle: 'short', dateStyle: 'short'})
         card = (
             <CardContent>
-                {/*<CardActionArea component={RouterLink} to="/questions">*/}
+                <CardActionArea href={`/home-dashboard/octopus-details`}>
                 <header className='top'>
                     <Typography variant="body2" component="div">{energy.alertMessage}</Typography>
                     <Typography variant="body2" component="div">{dfn.format(new Date(energy.timestamp))}</Typography>
@@ -97,7 +97,7 @@ const OctopusCard = ({energy}) => {
                         {nextThreeHours}
                     </div>
                 </main>
-                {/*</CardActionArea>*/}
+                </CardActionArea>
             </CardContent>
         );
     }

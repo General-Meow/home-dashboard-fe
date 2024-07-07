@@ -1,14 +1,14 @@
-import Navigation from "../shared/Navigation";
 import * as React from "react";
+import OctopusDashboard from "./OctopusDashboard";
+import {Link} from "react-router-dom";
 
 const OctopusDetails = props => {
     return (
 
         <div>
-            <Navigation/>
-            <h1>Octopus Details</h1>
-            <h4>
-            </h4>
+            <Link to={`/`}>Back</Link>
+
+            <OctopusDashboard/>
         </div>
     )
 }

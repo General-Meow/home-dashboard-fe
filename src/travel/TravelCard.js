@@ -19,7 +19,7 @@ const TravelCard = ({travelData}) => {
     if(travelData) {
         let busRoutes = [];
 
-        if (travelData.busRouteArr) {
+        if (travelData.busRouteArr?.length) {
             busRoutes = travelData.busRouteArr.map(route => {
                 return (
                     <ListItem disablePadding>
@@ -39,7 +39,7 @@ const TravelCard = ({travelData}) => {
 
         let trainRoutes = [];
 
-        if(travelData.trainRouteArr) {
+        if(travelData.trainRouteArr?.length) {
             travelData.trainRouteArr
                 .filter(route => route.isUnderground)
                 .filter(route => !route.statusOk)
@@ -52,7 +52,7 @@ const TravelCard = ({travelData}) => {
             });
         }
 
-        if(travelData.trainRouteArr.filter(route => !route.statusOk).length > 3) {
+        if(travelData.trainRouteArr?.filter(route => !route.statusOk).length > 3) {
             trainRoutes.push(
                 <ListItem disablePadding className='tube'>
                     <ListItemText className='moreIssues' sx={{margin: 0}}>More issues on other lines</ListItemText>

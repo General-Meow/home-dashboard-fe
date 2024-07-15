@@ -15,8 +15,6 @@ import AcUnitIcon from '@mui/icons-material/AcUnit';
 import WavesIcon from '@mui/icons-material/Waves';
 import CloudOutlinedIcon from '@mui/icons-material/CloudOutlined';
 import SleddingIcon from '@mui/icons-material/Sledding';
-import ListItem from "@mui/material/ListItem";
-import List from "@mui/material/List";
 
 const WeatherCard = ({weatherData}) => {
 
@@ -95,7 +93,7 @@ const WeatherCard = ({weatherData}) => {
             .map(day => {
                 const icon = getIcon(day.weatherIcon);
                 return (
-                    <ListItem className='day' key={day.dayName}>
+                    <div className='day'>
                         <div className='icon'>
                             {icon}
                         </div>
@@ -104,7 +102,7 @@ const WeatherCard = ({weatherData}) => {
                                     className='forecastTemp'>H: {day.highTemp}&deg;C</Typography>
                         <Typography variant="caption" component="div" align="center"
                                     className='forecastTemp'>L: {day.lowTemp}&deg;C</Typography>
-                    </ListItem>
+                    </div>
                 );
             });
 
@@ -140,9 +138,7 @@ const WeatherCard = ({weatherData}) => {
                 <Divider variant="middle" component="div" sx={{my: '10px'}}/>
 
                 <footer>
-                    <List>
-                        {fiveDayForecast}
-                    </List>
+                    {fiveDayForecast}
                 </footer>
             </CardContent>
         );

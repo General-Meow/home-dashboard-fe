@@ -16,19 +16,19 @@
     justify-content: space-around;
 }
 
-.WeatherCard footer div.day {
+.WeatherCard footer li.day {
     width: 75px;
     height: 75px;
     text-align: center;
 }
 
-.WeatherCard footer div.day .name {
+.WeatherCard footer li.day .name {
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.WeatherCard footer div.day .forecastTemp,
-.WeatherCard footer div.day .forecastTemp {
+.WeatherCard footer li.day .forecastTemp,
+.WeatherCard footer li.day .forecastTemp {
     line-height: normal;
 }
 

@@ -36,9 +36,10 @@ const SolarCard = ({solarData}) => {
     if (solarData !== undefined) {
 
         let entries = solarData.entries.entryArr
+            .filter(entry => entry !== undefined)
             .map(entry => {
                 return (
-                    <ListItem>
+                    <ListItem key={entry.type}>
                         <ListItemIcon>{getIcon(entry.type)}</ListItemIcon>
                         <ListItemText>{entry.description}: {entry.amount}{entry.unit}</ListItemText>
                     </ListItem>

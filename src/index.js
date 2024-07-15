@@ -8,7 +8,7 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 
 
-import App from './App';
+import {App, loader as rootLoader, action as rootAction} from './App';
 import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import ErrorPage from "./ErrorPage";
@@ -20,6 +20,8 @@ const router = createBrowserRouter(
             path: "/",
             element: <App/>,
             errorElement: <ErrorPage/>,
+            loader: rootLoader,
+            action: rootAction,
         },
         {
             path: "octopus-details",

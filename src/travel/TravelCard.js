@@ -20,7 +20,9 @@ const TravelCard = ({travelData}) => {
         let busRoutes = [];
 
         if (travelData.busRouteArr?.length) {
-            busRoutes = travelData.busRouteArr.map(route => {
+            busRoutes = travelData.busRouteArr
+                .filter(route => route !== undefined)
+                .map(route => {
                 return (
                     <ListItem disablePadding>
                         <ListItemText sx={{margin: 0}}>
@@ -41,6 +43,7 @@ const TravelCard = ({travelData}) => {
 
         if(travelData.trainRouteArr?.length) {
             travelData.trainRouteArr
+                .filter(route => route !== undefined)
                 .filter(route => route.isUnderground)
                 .filter(route => !route.statusOk)
                 .slice(0, 3).map(route => {
@@ -67,6 +70,7 @@ const TravelCard = ({travelData}) => {
         }
 
         let overgroundTimes = travelData.trainRouteArr
+            .filter(route => route !== undefined)
             .filter(route => !route.isUnderground)
             .filter(route => route.lineName === 'London Overground')
             .flatMap(route => route.nextTimesArr)
@@ -81,6 +85,7 @@ const TravelCard = ({travelData}) => {
         ;
 
         let overground = travelData.trainRouteArr
+            .filter(route => route !== undefined)
             .filter(route => !route.isUnderground)
             .filter(route => route.lineName === 'London Overground')
             .map(route => (

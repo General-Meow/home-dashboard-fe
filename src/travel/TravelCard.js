@@ -55,7 +55,7 @@ const TravelCard = ({travelData}) => {
             });
         }
 
-        if(travelData.trainRouteArr?.filter(route => !route.statusOk).length > 3) {
+        if(travelData.trainRouteArr && travelData.trainRouteArr?.filter(route => !route.statusOk).length > 3) {
             trainRoutes.push(
                 <ListItem disablePadding className='tube'>
                     <ListItemText className='moreIssues' sx={{margin: 0}}>More issues on other lines</ListItemText>

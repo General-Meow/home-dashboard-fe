@@ -40,8 +40,9 @@ const TravelCard = ({travelData}) => {
         }
 
         let trainRoutes = [];
-
-        if(travelData.trainRouteArr?.length) {
+        let overgroundTimes = [];
+        let overground = [];
+        if(travelData.trainRouteArr?.lineStatuses?.length) {
             travelData.trainRouteArr
                 .filter(route => route !== undefined)
                 .filter(route => route.isUnderground)
@@ -53,6 +54,37 @@ const TravelCard = ({travelData}) => {
                     </ListItem>
                 );
             });
+
+            overgroundTimes = travelData.trainRouteArr
+                .filter(route => route !== undefined)
+                .filter(route => !route.isUnderground)
+                .filter(route => route.lineName === 'London Overground')
+                .flatMap(route => route.nextTimesArr)
+                .flat()
+                .map(time => new Date(time))
+                .filter(time => {
+                    const now = new Date();
+                    return time > now;
+                })
+                .slice(0, 2)
+                .map(time => `${time.toLocaleTimeString()}`);
+            ;
+
+            overground = travelData.trainRouteArr
+                .filter(route => route !== undefined)
+                .filter(route => !route.isUnderground)
+                .filter(route => route.lineName === 'London Overground')
+                .map(route => (
+                        <ListItem disablePadding>
+                            <ListItemText className='overground' sx={{margin: 0}}>
+                                <Typography variant="body2" component="div">{route.lineName} From New cross to Canada Water</Typography>
+                                <Typography variant="body2" component="div" sx={{textAlign: 'center'}}>
+                                    {overgroundTimes.map(time => `${time} `)}
+                                </Typography>
+                            </ListItemText>
+                        </ListItem>
+                    )
+                );
         }
 
         if(travelData.trainRouteArr?.lineStatuses){
@@ -71,36 +103,7 @@ const TravelCard = ({travelData}) => {
             );
         }
 
-        let overgroundTimes = travelData.trainRouteArr
-            .filter(route => route !== undefined)
-            .filter(route => !route.isUnderground)
-            .filter(route => route.lineName === 'London Overground')
-            .flatMap(route => route.nextTimesArr)
-            .flat()
-            .map(time => new Date(time))
-            .filter(time => {
-                const now = new Date();
-                return time > now;
-            })
-            .slice(0, 2)
-            .map(time => `${time.toLocaleTimeString()}`);
-        ;
 
-        let overground = travelData.trainRouteArr
-            .filter(route => route !== undefined)
-            .filter(route => !route.isUnderground)
-            .filter(route => route.lineName === 'London Overground')
-            .map(route => (
-                <ListItem disablePadding>
-                    <ListItemText className='overground' sx={{margin: 0}}>
-                        <Typography variant="body2" component="div">{route.lineName} From New cross to Canada Water</Typography>
-                        <Typography variant="body2" component="div" sx={{textAlign: 'center'}}>
-                            {overgroundTimes.map(time => `${time} `)}
-                        </Typography>
-                    </ListItemText>
-                </ListItem>
-                )
-            );
 
         let dfn = new Intl.DateTimeFormat('en-GB', {timeStyle: 'short', dateStyle: 'short'})
         card = (

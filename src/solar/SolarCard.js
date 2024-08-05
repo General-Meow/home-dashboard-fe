@@ -35,7 +35,7 @@ const SolarCard = ({solarData}) => {
 
     if (solarData !== undefined) {
 
-        let entries = solarData.entries?.entryArr
+        let entries = solarData.entryArr
             .filter(entry => entry !== undefined)
             .map(entry => {
                 return (

@@ -43,7 +43,7 @@ const TravelCard = ({travelData}) => {
         let overgroundTimes = [];
         let overground = [];
         if(travelData.trainRouteArr?.lineStatuses?.length) {
-            travelData.trainRouteArr
+            travelData.trainRouteArr.lineStatuses
                 .filter(route => route !== undefined)
                 .filter(route => route.isUnderground)
                 .filter(route => !route.statusOk)
@@ -55,7 +55,7 @@ const TravelCard = ({travelData}) => {
                 );
             });
 
-            overgroundTimes = travelData.trainRouteArr
+            overgroundTimes = travelData.trainRouteArr.lineStatuses
                 .filter(route => route !== undefined)
                 .filter(route => !route.isUnderground)
                 .filter(route => route.lineName === 'London Overground')
@@ -70,7 +70,7 @@ const TravelCard = ({travelData}) => {
                 .map(time => `${time.toLocaleTimeString()}`);
             ;
 
-            overground = travelData.trainRouteArr
+            overground = travelData.trainRouteArr.lineStatuses
                 .filter(route => route !== undefined)
                 .filter(route => !route.isUnderground)
                 .filter(route => route.lineName === 'London Overground')

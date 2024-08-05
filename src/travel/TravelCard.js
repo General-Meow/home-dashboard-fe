@@ -50,7 +50,7 @@ const TravelCard = ({travelData}) => {
                 .slice(0, 3).map(route => {
                 return (
                     <ListItem disablePadding className='tube'>
-                        <ListItemText className={route.lineName.toLowerCase()} sx={{margin: 0}}>{route.lineName}</ListItemText>
+                        <ListItemText className={route.name.toLowerCase()} sx={{margin: 0}}>{route.name}</ListItemText>
                     </ListItem>
                 );
             });
@@ -58,7 +58,7 @@ const TravelCard = ({travelData}) => {
             overgroundTimes = travelData.trainRouteArr.lineStatuses
                 .filter(route => route !== undefined)
                 .filter(route => !route.isUnderground)
-                .filter(route => route.lineName === 'London Overground')
+                .filter(route => route.name === 'London Overground')
                 .flatMap(route => route.nextTimesArr)
                 .flat()
                 .map(time => new Date(time))
@@ -73,11 +73,11 @@ const TravelCard = ({travelData}) => {
             overground = travelData.trainRouteArr.lineStatuses
                 .filter(route => route !== undefined)
                 .filter(route => !route.isUnderground)
-                .filter(route => route.lineName === 'London Overground')
+                .filter(route => route.name === 'London Overground')
                 .map(route => (
                         <ListItem disablePadding>
                             <ListItemText className='overground' sx={{margin: 0}}>
-                                <Typography variant="body2" component="div">{route.lineName} From New cross to Canada Water</Typography>
+                                <Typography variant="body2" component="div">{route.name} From New cross to Canada Water</Typography>
                                 <Typography variant="body2" component="div" sx={{textAlign: 'center'}}>
                                     {overgroundTimes.map(time => `${time} `)}
                                 </Typography>

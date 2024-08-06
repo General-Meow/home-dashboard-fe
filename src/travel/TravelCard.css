@@ -60,60 +60,74 @@
 }
 
 .TravelCard section.trains .tube .bakerloo {
+    border: 3px red dotted;
     background: #894e24;
 }
 
 .TravelCard section.trains .tube .central {
+    border: 3px darkred dotted;
     background: #dc241f;
 }
 
 .TravelCard section.trains .tube .elizabeth {
+    border: 3px red dotted;
     background: #6950a1;
 }
 
 .TravelCard section.trains .tube .hammersmith-city {
+    border: 3px red dotted;
     background: #d799af;
 }
 
 .TravelCard section.trains .tube .circle {
+    border: 3px red dotted;
     background: #ffce00;
 }
 
 .TravelCard section.trains .tube .district {
+    border: 3px red dotted;
     background: #007229;
 }
 
 .TravelCard section.trains .tube .jubilee {
+    border: 3px red dotted;
     background: #6a7278;
 }
 
 .TravelCard section.trains .tube .metropolitan {
+    border: 3px red dotted;
     background: #751056;
     color: white;
 }
 
 .TravelCard section.trains .tube .northern {
+    border: 3px red dotted;
     background: #000;
     color: white;
 }
 
 .TravelCard section.trains .tube .piccadilly {
+    border: 3px red dotted;
     background: #0019a8;
     color: white;
 }
 
 .TravelCard section.trains .tube .victoria {
+    border: 3px red dotted;
     background: #00a0e2;
 }
 
 .TravelCard section.trains .tube .waterloo-city {
+    border: 3px red dotted;
     background: #76d0bd;
 }
 
 .TravelCard section.trains .tube .dlr {
+    border: 3px red dotted;
     background: #00afad;
 }
 
 .TravelCard section.trains .tube .london-overground {
+    border: 3px red dotted;
     background: #e86a10;
 }

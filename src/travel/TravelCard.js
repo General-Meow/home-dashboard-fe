@@ -43,7 +43,7 @@ const TravelCard = ({travelData}) => {
         let overgroundTimes = [];
         let overground = [];
         if(travelData.trainRouteArr?.lineStatuses?.length) {
-            travelData.trainRouteArr.lineStatuses
+            trainRoutes = travelData.trainRouteArr.lineStatuses
                 .filter(route => route !== undefined)
                 .filter(route => route.isUnderground)
                 .filter(route => !route.statusOk)
@@ -88,7 +88,8 @@ const TravelCard = ({travelData}) => {
         }
 
         if(travelData.trainRouteArr?.lineStatuses){
-            if (travelData.trainRouteArr.lineStatuses.filter(route => !route.statusOk).length > 3) {
+            if (travelData.trainRouteArr.lineStatuses
+                .filter(route => !route.statusOk).length > 3) {
                 trainRoutes.push(
                     <ListItem disablePadding className='tube'>
                         <ListItemText className='moreIssues' sx={{margin: 0}}>More issues on other lines</ListItemText>

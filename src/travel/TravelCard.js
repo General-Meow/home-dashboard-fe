@@ -110,7 +110,7 @@ const TravelCard = ({travelData}) => {
         card = (
             <CardContent>
                 <header className='top'>
-                    <Typography variant="body2" component="div" align="right">{dfn.format(new Date(travelData.timestamp))}</Typography>
+                    <Typography variant="body2" component="div" align="right" className='timstamp'>{dfn.format(new Date(travelData.timestamp))}</Typography>
                 </header>
                 <main>
                     <section className='left busses'>

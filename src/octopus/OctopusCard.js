@@ -69,37 +69,57 @@ const OctopusCard = ({energy}) => {
         }
 
         let dfn = new Intl.DateTimeFormat('en-GB', {timeStyle: 'short', dateStyle: 'short'})
-        card = (
-            <CardContent>
-                <CardActionArea href={`/home-dashboard/octopus-details`}>
-                <header className='top'>
-                    <Typography variant="body2" component="div">{energy.alertMessage}</Typography>
-                    <Typography variant="body2" component="div">{dfn.format(new Date(energy.timestamp))}</Typography>
-                </header>
-                <main>
-                    <div className='top'>
-                        <Typography variant="h4" component="div" className={currentPriceStyle} gutterBottom>
-                            Current Price: {energy.currentElectricPrice}p
-                            <BoltIcon color="secondary" fontSize="large" sx={{position: 'relative', top: '8px'}}/>
-                        </Typography>
-                        <Divider variant="middle" component="div"/>
-                        <Typography variant="h5" component="div" gutterBottom>
-                            Today's Gas Price: {energy.todaysGasPrice}p <LocalFireDepartmentIcon color="secondary"
-                                                                                                 fontSize="large"
-                                                                                                 sx={{
-                                                                                                     position: 'relative',
-                                                                                                     top: '8px'
-                                                                                                 }}/>
-                        </Typography>
-                    </div>
-                    <div className='sub'>
-                        <Typography variant="body1" component="div" gutterBottom>The next 3 hours</Typography>
-                        {nextThreeHours}
-                    </div>
-                </main>
-                </CardActionArea>
-            </CardContent>
-        );
+        let error = energy.errorMessage;
+        if (error) {
+            card = (
+                <CardContent>
+                    <CardActionArea href={`/home-dashboard/octopus-details`}>
+                        <main>
+                            <div className='top'>
+                                <Typography variant="h4" component="div" className='error' gutterBottom>
+                                    {error}
+                                </Typography>
+                            </div>
+                        </main>
+                    </CardActionArea>
+                </CardContent>
+            );
+        } else {
+            card = (
+                <CardContent>
+                    <CardActionArea href={`/home-dashboard/octopus-details`}>
+                        <header className='top'>
+                            <Typography variant="body2" component="div">{energy.alertMessage}</Typography>
+                            <Typography variant="body2"
+                                        component="div">{dfn.format(new Date(energy.timestamp))}</Typography>
+                        </header>
+                        <main>
+                            <div className='top'>
+                                <Typography variant="h4" component="div" className={currentPriceStyle} gutterBottom>
+                                    Current Price: {energy.currentElectricPrice}p
+                                    <BoltIcon color="secondary" fontSize="large"
+                                              sx={{position: 'relative', top: '8px'}}/>
+                                </Typography>
+                                <Divider variant="middle" component="div"/>
+                                <Typography variant="h5" component="div" gutterBottom>
+                                    Today's Gas Price: {energy.todaysGasPrice}p <LocalFireDepartmentIcon
+                                    color="secondary"
+                                    fontSize="large"
+                                    sx={{
+                                        position: 'relative',
+                                        top: '8px'
+                                    }}/>
+                                </Typography>
+                            </div>
+                            <div className='sub'>
+                                <Typography variant="body1" component="div" gutterBottom>The next 3 hours</Typography>
+                                {nextThreeHours}
+                            </div>
+                        </main>
+                    </CardActionArea>
+                </CardContent>
+            );
+        }
     }
 
     return (

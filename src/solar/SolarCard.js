@@ -5,11 +5,10 @@ import Typography from "@mui/material/Typography";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
-import {ListItemIcon} from "@mui/material";
+import {CardActionArea, ListItemIcon} from "@mui/material";
 import SolarPowerIcon from '@mui/icons-material/SolarPower';
 import HomeIcon from '@mui/icons-material/Home';
 import BatteryChargingFullIcon from '@mui/icons-material/BatteryChargingFull';
-import BatteryFullIcon from '@mui/icons-material/BatteryFull';
 import LightModeIcon from '@mui/icons-material/LightMode';
 
 const SolarCard = ({solarData}) => {
@@ -49,20 +48,23 @@ const SolarCard = ({solarData}) => {
         let dfn = new Intl.DateTimeFormat('en-GB', {timeStyle: 'short', dateStyle: 'short'})
         card = (
             <CardContent>
-                <header className='top'>
-                    <Typography variant="body2" component="div" align="right">{dfn.format(new Date(solarData.timestamp))}</Typography>
-                </header>
-                <main>
-                    <List>
-                        {entries}
-                    </List>
+                <CardActionArea href={`/home-dashboard/solar-details`}>
+                    <header className='top'>
+                        <Typography variant="body2" component="div"
+                                    align="right">{dfn.format(new Date(solarData.timestamp))}</Typography>
+                    </header>
+                    <main>
+                        <List>
+                            {entries}
+                        </List>
 
-                    <div className='data'>Generating: 2.1Kwh</div>
-                    <div className='data'>House Usage: 300Wh</div>
-                    <div className='data'>Battery Percentage: 40%</div>
-                    <div className='data'>Predicted Generation: 8Kwh</div>
-                </main>
-                <footer>footer</footer>
+                        <div className='data'>Generating: 2.1Kwh</div>
+                        <div className='data'>House Usage: 300Wh</div>
+                        <div className='data'>Battery Percentage: 40%</div>
+                        <div className='data'>Predicted Generation: 8Kwh</div>
+                    </main>
+                    <footer>footer</footer>
+                </CardActionArea>
             </CardContent>
         );
     }

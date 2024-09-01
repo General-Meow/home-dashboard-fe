@@ -13,6 +13,10 @@ import reportWebVitals from './reportWebVitals';
 import {createBrowserRouter, RouterProvider,} from "react-router-dom";
 import ErrorPage from "./ErrorPage";
 import OctopusDetails from "./octopus/OctopusDetails";
+import SolarDetails from "./solar/SolarDetails";
+import TravelDetails from "./travel/TravelDetails";
+import WeatherCard from "./weather/WeatherCard";
+import {loader as octopusLoader} from './octopus/OctopusDetails';
 
 const router = createBrowserRouter(
     [
@@ -25,8 +29,23 @@ const router = createBrowserRouter(
         },
         {
             path: "octopus-details",
-            element: <OctopusDetails/>
-        }
+            element: <OctopusDetails/>,
+            loader: octopusLoader,
+
+        },
+        {
+            path: "travel-details",
+            element: <TravelDetails/>
+        },
+        {
+            path: "weather-details",
+            element: <WeatherCard/>
+        },
+        {
+            path: "solar-details",
+            element: <SolarDetails/>,
+        },
+
     ],
     {
         basename: "/home-dashboard"

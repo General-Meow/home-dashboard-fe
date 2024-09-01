@@ -57,10 +57,7 @@ function App() {
 
 async function loader() {
 
-    let dashboardUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/dashboard';
-    if(document.location.host.indexOf('localhost') >= 0) {
-        dashboardUrl = 'http://localhost:3000/dashboard';
-    }
+    let dashboardUrl = '/home-dashboard-service/dashboard';
     var responsePromise = await fetch(dashboardUrl);
     return responsePromise.json();
 }

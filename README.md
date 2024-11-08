@@ -16,9 +16,10 @@ running locally can be done with a simple
 `npm start`
 
 It will expect the backend sevices to be up an running too in order for it to get the data it needs. For more information 
-on setting up you local environment, please take a look at the docker-compose file in the home-dashboard-infra project
+on setting up you local environment, please take a look at the docker-compose file in the home-dashboard-infra project. If
+you've got that already, cloned simply update the environment key's in the docker-compose.yml file then run:
 
-    123
+`docker compose up`
 
 ### Deployment
 

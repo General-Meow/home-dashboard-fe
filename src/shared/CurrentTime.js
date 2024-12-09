@@ -37,7 +37,7 @@ const CurrentTime = props => {
 
 
     return (
-        <span class='CurrentTime'>
+        <span className='CurrentTime'>
             <Typography variant='body1'>
                 {nowFormatted}
             </Typography>

@@ -11,6 +11,8 @@ the door to allow family members view information that might affect their day.
 
 ### Development
 
+to download all the dependencies, run `npm install`
+
 running locally can be done with a simple 
 
 `npm start`

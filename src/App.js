@@ -61,6 +61,8 @@ async function loader() {
 
     if(document.location.host.indexOf('localhost:3000') >= 0) {
         dashboardUrl = 'http://localhost:3000/dashboard';
+    } else if (document.location.host.indexOf('http://hoangfamily123.tplinkdns.com/') >= 0){
+        dashboardUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/dashboard';
     }
 
     var responsePromise = await fetch(dashboardUrl);

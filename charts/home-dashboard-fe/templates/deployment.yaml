@@ -18,7 +18,8 @@ spec:
     spec:
       containers:
         - name: home-dashboard-fe
-          image: generalmeow/home-dashboard-fe:latest
+          image: {{ .Values.image }}
+          imagePullPolicy: {{ .Values.pullPolicy }}
           ports:
             - containerPort: 80
               name: http

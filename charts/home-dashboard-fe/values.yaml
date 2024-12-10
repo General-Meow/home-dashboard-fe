@@ -1,3 +1,5 @@
+pullPolicy: Always
+image: generalmeow/home-dashboard-fe:latest
 service:
   type: ClusterIP
   port: 80

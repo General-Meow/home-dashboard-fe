@@ -59,7 +59,7 @@ async function loader() {
 
     let dashboardUrl = '/home-dashboard/service/dashboard';
 
-    if(document.location.host.indexOf('localhost') >= 0) {
+    if(document.location.host.indexOf('localhost:3000') >= 0) {
         dashboardUrl = 'http://localhost:3000/dashboard';
     }
 

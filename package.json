@@ -2,7 +2,6 @@
   "name": "home-dashboard-fe",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://localhost/home-dashboard/",
   "dependencies": {
     "@fontsource/roboto": "^5.0.8",
     "@mui/icons-material": "^5.15.3",

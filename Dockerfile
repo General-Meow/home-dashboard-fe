@@ -1,4 +1,4 @@
-FROM node:slim AS build-step
+FROM node:lts-alpine AS build-step
 MAINTAINER Paul Hoang
 
 WORKDIR /app

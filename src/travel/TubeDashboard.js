@@ -2,6 +2,7 @@ import './TubeDashboard.css'
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {Table, TableBody, TableCell, TableRow} from "@mui/material";
+import {defaultBackendUrl} from "../App";
 
 
 const status = function (line, statuses) {
@@ -29,7 +30,7 @@ function TubeDashboard() {
     if(document.location.host.indexOf('localhost') >= 0) {
         url = 'http://localhost:3000/tube-status';
     } else {
-        url = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/tube-status';
+        url = defaultBackendUrl + 'tube-status';
     }
 
     var [lineStatuses, setLineStatuses] = useState([]);

@@ -2,12 +2,12 @@ import './OctopusDashboard.css';
 import {useEffect, useState} from "react";
 import axios from "axios";
 import OctopusDayPrice from "./OctopusDayPrice";
+import {defaultBackendUrl} from "../App";
 
 const OctopusDashboard = props => {
 
-    // const todaysPricesUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/electric-prices';
-    let todaysPricesUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/todays-electric-prices';
-    let tomorrowsPricesUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/tomorrows-electric-prices';
+    let todaysPricesUrl = defaultBackendUrl + 'todays-electric-prices';
+    let tomorrowsPricesUrl = defaultBackendUrl + 'tomorrows-electric-prices';
 
     if(document.location.host.indexOf('localhost') >= 0) {
         todaysPricesUrl = 'http://localhost:3000/todays-electric-prices';

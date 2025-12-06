@@ -9,10 +9,11 @@ import Typography from "@mui/material/Typography";
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import CurrentTime from "./shared/CurrentTime";
 
+let defaultBackendUrl = document.location.protocol + '//' + document.location.hostname + '/service/';
 
 function App() {
 
-    let dashboardUrl = 'http://hoangfamily123.tplinkdns.com/service/dashboard';
+    let dashboardUrl = defaultBackendUrl + 'dashboard';
 
     if(document.location.host.indexOf('localhost') >= 0) {
         dashboardUrl = 'http://localhost:3000/dashboard';
@@ -71,4 +72,4 @@ function App() {
     );
 }
 
-export default App;
+export {App, defaultBackendUrl};

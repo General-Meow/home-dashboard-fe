@@ -2,10 +2,11 @@ import './WeatherDashboard.css'
 import {useEffect, useState} from "react";
 import axios from 'axios';
 import {Table, TableBody, TableCell, TableHead, TableRow} from "@mui/material";
+import {defaultBackendUrl} from "../App";
 
 function WeatherDashboard() {
-    let todaysWeatherUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/todays-weather';
-    let forecastWeatherUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/forecast-weather';
+    let todaysWeatherUrl = defaultBackendUrl + 'todays-weather';
+    let forecastWeatherUrl = defaultBackendUrl + 'forecast-weather';
     if (document.location.host.indexOf('localhost') >= 0) {
         todaysWeatherUrl = 'http://localhost:3000/todays-weather';
         forecastWeatherUrl = 'http://localhost:3000/forecast-weather';

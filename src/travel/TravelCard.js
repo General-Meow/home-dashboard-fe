@@ -21,7 +21,7 @@ const TravelCard = ({travelData}) => {
 
         if (travelData.busRouteArr?.length) {
             busRoutes = travelData.busRouteArr
-                .filter(route => route !== undefined)
+                .filter(route => route !== undefined && route != null)
                 .map(route => {
                 return (
                     <ListItem disablePadding>

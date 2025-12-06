@@ -1,9 +1,10 @@
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {defaultBackendUrl} from "../App";
 
 const GivenergyDashboard = props => {
 
-  let solarUrl = 'http://hoangfamily123.tplinkdns.com/home-dashboard/service/solar-flow';
+  let solarUrl = defaultBackendUrl + 'solar-flow';
 
   if(document.location.host.indexOf('localhost') >= 0) {
     solarUrl = 'http://localhost:3000/solar-flow';
